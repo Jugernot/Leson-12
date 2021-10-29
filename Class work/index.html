@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/integration
+            emailjs.init('user_mSDco50mIJzbWaIYUqX1K');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_iea0vba', 'template_2argod4', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+</head>
+<body>
+    <form action="/login" id="contact-form" method="post">
+
+        
+        <input type="hidden" name="contact_number">
+        <div>
+            <p>
+                Name
+            </p>
+            <input name="from_name" placeholder="name" type="text" required>               
+        </div>
+
+        <div>
+            <p>
+                Pasword
+            </p>
+            <input type="password" name="password" required>
+        </div>
+
+        <div>
+            <p>
+                Telefon
+            </p>
+                <input type="text" name="fone">
+        </div>
+
+        <div>
+            <p>
+                Email
+            </p>
+            <input type="email" name="email">
+        </div>
+        
+        <div>
+            <p>Пол</p>
+            <p>
+                <label>
+                <input checked type="radio" name="status"> Мужской </label>        
+            </p>
+            <p>
+                  <input type="radio" name="status"> Женский
+            </p>
+        </div>
+
+        <div>
+            <p>Имущество</p>
+            <p>
+                <input checked type="checkbox" name="im"> Велик
+            </p>
+            <p>
+                <input disabled type="checkbox" name="im"> Машина
+            </p>
+            <p>
+                <input checked type="checkbox" name="im"> Дом
+            </p>
+        </div>
+        <div>
+            <p>
+                Дополнительная информация
+            </p>
+            <textarea name="text" id="" cols="30" rows="4"></textarea>
+        </div>
+        <div>
+            <p>
+                Прикрипить фотографию
+            </p>
+            <input name="fail" type="file">           
+        </div>
+        <div>
+            <p>
+                Любымый цвет
+            </p>
+            <select name="color_f">
+                <option value="red"> красный </option>
+                <option value="yelow"> желтый </option>
+                <option value="blue"> синий </option>
+            </select>
+        </div>
+        <div>
+            <p>
+                Действие
+            </p>
+            <input name="buton" type="submit">
+            <input name="buton" type="reset">
+        </div>
+
+
+    </form>
+
+
+
+
+
+</body>
+</html>
