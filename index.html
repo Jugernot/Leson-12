@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+<title>Contact Form</title>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        // https://dashboard.emailjs.com/admin/integration
+        emailjs.init('user_mSDco50mIJzbWaIYUqX1Ks');
+    })();
+</script>
+<script type="text/javascript">
+    window.onload = function() {
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // generate a five digit number for the contact_number variable
+            this.contact_number.value = Math.random() * 100000 | 0;
+            // these IDs from the previous steps
+            emailjs.sendForm('service_iea0vba', 'template_ze0p0t5', this)
+                .then(function() {
+                    console.log('SUCCESS!');
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+        });
+    }
+</script>
+</head>
+<body>
+    <div class="main">
+        <div class="left_column">
+            <div class="Contact_text">
+                <p class="Cont_text">Contact Us</p>
+            </div> 
+
+            <div class="thee_circle">
+                <div class="circle face">
+                    <p>f</p>
+                </div>
+                <div class="circle twit">
+                    <p>t</p>
+                </div>
+                <div class="circle In">
+                    <p>in</p>
+                </div>
+            </div>
+            <div class="Or_use">
+                <h2>Or use our contact form below</h2>
+            </div>
+            <div class="Email_div">
+                <input name="Email" placeholder="Email" type="text">
+            </div>
+            <div class="Telefone_div">
+                <input name="Telefone" placeholder="Telefone" type="text">
+            </div>
+            <div class="Type_your_div">
+                <p class="down_left_coluvn_text">Type your messeng here:</p>
+            </div>
+            <div class="coment_div">
+                <textarea name="coment" cols="30" rows="10"></textarea>
+            </div>
+            <div class="Need_adwenture_text">
+                <p class="down_left_coluvn_text">
+                    Need addition help
+                </p>
+            </div>
+            <div class="button_div">
+                <input type="submit" class="button_end"> 
+            </div>
+            
+
+
+        
+    </div>
+    <div class="right_column">
+
+        <div class="right_column_conteiner">
+
+            <div class="Hello_user_div">
+                <p class="Hello_user_text">
+                    Hello, User
+                </p>
+            </div>
+            <div class="If_you_div">
+                <p class="If_you_text">
+                    If you want know more info about our project them
+                </p>
+            </div>
+            <div class="button_div">
+                <div class="button">
+                    <i class="fa fa-reply" aria-hidden="true"></i>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+       
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
